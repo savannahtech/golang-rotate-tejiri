@@ -1,0 +1,9 @@
+.DS_Store
+.idea
+.env
+dist/
+/.git/
+/.idea/
+savannah-assessment
+FileModTracker_Source.zip
+cover.out.tmp

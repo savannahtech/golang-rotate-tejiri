@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*"
+           Name="MyApp Installer"
+           Language="1033"
+           Version="1.0.0.0"
+           Manufacturer="TejiriAustin"
+           UpgradeCode="PUT-GUID-HERE">
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of FileModTracker is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="My Application" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="MyApp" />
+      </Directory>
+    </Directory>
+
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="ApplicationFiles" Guid="*">
+        <File Id="FileModTracker" Name="filemodtracker.exe" Source="filemodtracker.exe" KeyPath="yes" />
+        <File Id="SQLiteDLL" Name="sqlite3.dll" Source="sqlite3.dll" />
+        <File Id="OsquerydEXE" Name="osqueryd.exe" Source="osqueryd.exe" />
+        <File Id="OsqueryiEXE" Name="osqueryi.exe" Source="osqueryi.exe" />
+      </Component>
+    </ComponentGroup>
+  </Product>
+</Wix>
